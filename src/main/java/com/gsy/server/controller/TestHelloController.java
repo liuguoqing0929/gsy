@@ -18,10 +18,10 @@ public class TestHelloController {
 
 //     private String appId = "wxbe576a2d19d9aa08";
     // private String openid = "owi0B5es4exNz3zfGWX_BUmkePEw";
-    private String appId = "wx7a0c173792e4ebc6";
+    private String appId = "wxbe576a2d19d9aa08";
 
 //     private String appSecret = "d8f1686e2ee44ca31c8802ec27b62e97";
-    private String appSecret = "4de80d3a0fea72f516a218d8c5d33c7c";
+    private String appSecret = "d8f1686e2ee44ca31c8802ec27b62e97";
 
     // 授权（必填）
     String grant_type = "authorization_code";
