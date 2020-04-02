@@ -1,6 +1,7 @@
 package com.gsy.server.controller;
 
 import com.gsy.server.bean.User;
+import com.gsy.server.sevice.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -11,6 +12,9 @@ public class TestHelloController {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private MyService myService;
 
 //     private String appId = "wxbe576a2d19d9aa08";
     // private String openid = "owi0B5es4exNz3zfGWX_BUmkePEw";
@@ -34,5 +38,11 @@ public class TestHelloController {
     public String hello2(){
 
         return "hello2";
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test(){
+
+        return myService.test();
     }
 }

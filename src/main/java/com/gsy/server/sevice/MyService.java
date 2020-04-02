@@ -1,6 +1,6 @@
 package com.gsy.server.sevice;
 
-import com.gsy.server.dao.MyMapper;
+import com.gsy.server.mapper.MyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +14,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MyService {
-    private final MyMapper myMapper;
+    // private final MyMapper myMapper;
+
+//    @Autowired
+//    public MyService(MyMapper myMapper) {
+//        this.myMapper = myMapper;
+//    }
 
     @Autowired
-    public MyService(MyMapper myMapper) {
-        this.myMapper = myMapper;
-    }
+    private MyMapper myMapper;
 
     public String test() {
+
         return myMapper.test();
+//        return "二傻子是胥晓雯";
     }
 }

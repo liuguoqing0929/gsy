@@ -1,8 +1,10 @@
 package com.gsy.server;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@MapperScan("com.gsy.server.mapper")
 @SpringBootApplication
 public class ServerApplication {
 

@@ -1,9 +1,7 @@
-package com.gsy.server.dao;
+package com.gsy.server.mapper;
 
-import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.Mapping;
 
 /**
  * Created with IntelliJ IDEA
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.Mapping;
  * @time 1:17
  */
 //@Mapper
-//@Repository
+@Repository
 //@Component
 public interface MyMapper {
     String test();
