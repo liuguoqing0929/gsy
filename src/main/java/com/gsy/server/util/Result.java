@@ -72,6 +72,14 @@ public class Result implements Serializable {
     }
 
     // 单返回失败的状态码
+    public static Result failure(String message) {
+        Result result = new Result();
+        result.setCode(0);
+        result.setMsg(message);
+        return result;
+    }
+
+    // 单返回失败的状态码
     public static Result failure(Integer code, String message) {
         Result result = new Result();
         result.setCode(code);
