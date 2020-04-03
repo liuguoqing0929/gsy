@@ -30,7 +30,7 @@ public class UserController {
         }
         // 根据code 获取openId
         Map<Object, String> wxResult = restTemplate.getForObject(WechatUtil.getOpenIdUrl.replace("USERCODE", user.getCode()), new HashMap<>().getClass());
-        if(StringUtil.isNull(wxResult.get("errcode"))){
+        if(!StringUtil.isNull(wxResult.get("errcode"))){
             String errCode = wxResult.get("errcode");
             if(errCode == null || "".equals(errCode))
                 errCode = "0000";
