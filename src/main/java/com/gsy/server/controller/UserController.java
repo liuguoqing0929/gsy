@@ -67,7 +67,10 @@ public class UserController {
         }else{
             // 用户已经存在 更新微信信息
             int result = userService.editWechatUserByOpenId(wechatUser);
-            return null;
+            if(result > 0){
+                return Result.success();
+            }
+            return Result.failure("更新用户失败");
         }
     }
 }

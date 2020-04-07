@@ -6,6 +6,7 @@ public class User implements Serializable {
     private String id;
     private String name;
     private String code;
+    private String openId;
 
     public String getId() {
         return id;
@@ -29,5 +30,13 @@ public class User implements Serializable {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 }
