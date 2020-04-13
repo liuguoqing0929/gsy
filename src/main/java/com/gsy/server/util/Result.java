@@ -48,6 +48,16 @@ public class Result implements Serializable {
         return result;
     }
 
+    //成功 不返回数据直接返回成功信息 自定义成功返回信息
+    public static Result success(String msg) {
+        Result result = new Result();
+        result.setResultCode(ResultCode.SUCCESS);
+        result.setMsg(msg);
+        return result;
+    }
+
+
+
     //成功 并且加上返回数据
     public static Result success(Object data) {
         Result result = new Result();

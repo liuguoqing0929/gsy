@@ -7,6 +7,7 @@ import com.gsy.server.sevice.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -21,5 +22,23 @@ public class AddressServiceImpl implements AddressService {
 
         address.setId(UUID.randomUUID().toString());
         return addressMapper.addAddress(address);
+    }
+
+    @Override
+    public List<Address> queryAddressByOpenId(String openId) {
+
+        return addressMapper.queryAddressByOpenId(openId);
+    }
+
+    @Override
+    public int updateAddressByOpenId(Address address) {
+
+        return addressMapper.updateAddressByOpenId(address);
+    }
+
+    @Override
+    public int deleteAddressById(String addressId) {
+
+        return addressMapper.deleteAddressById(addressId);
     }
 }

@@ -71,4 +71,48 @@
         </trim>
     </insert>
 
+    <!-- 查询一个用户的所有地址 -->
+    <select id="queryAddressByOpenId" parameterType="java.lang.String" resultType="com.gsy.server.model.Address">
+        SELECT * FROM ADDRESS WHERE 1=1 AND OPENID = #{openId}
+    </select>
+
+    <!-- 更新地址 -->
+    <update id="updateAddressByOpenId" parameterType="com.gsy.server.model.Address">
+        <if test="openId != null">
+            update ADDRESS
+            <set>
+                <if test="consignee != null and consignee != ''">
+                    consignee = #{consignee},
+                </if>
+                <if test="phone != null and phone != ''">
+                    phone = #{phone},
+                </if>
+                <if test="province != null and province != ''">
+                    province = #{province},
+                </if>
+                <if test="city != null and city != ''">
+                    city = #{city},
+                </if>
+                <if test="district != null and district != ''">
+                    district = #{district},
+                </if>
+                <if test="street != null and street != ''">
+                    street = #{street},
+                </if>
+                <if test="detail_street != null and detail_street != ''">
+                    detail_street = #{detail_street},
+                </if>
+                <if test="type != null and type != ''">
+                    type = #{type},
+                </if>
+            </set>
+            where 1 = 1 and openId = #{openId}
+        </if>
+    </update>
+
+    <!-- 删除地址 -->
+    <delete id="deleteAddressById" parameterType="java.lang.String">
+        DELETE FROM ADDRESS WHERE ID = #{addressId}
+    </delete>
+
 </mapper>

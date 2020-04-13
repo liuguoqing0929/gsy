@@ -48,7 +48,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/addWechatUser")
+    @PostMapping("/addWechatUser")
     public Result addWechatUser(@RequestBody() WechatUser wechatUser){
         // 先去判断当前是否已经存在openId的用户了
         if(StringUtil.isNull(wechatUser.getOpenId())){
