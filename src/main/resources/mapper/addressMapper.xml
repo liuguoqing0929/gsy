@@ -2,4 +2,73 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gsy.server.mapper.AddressMapper">
 
+    <!-- 添加 -->
+    <insert id="addAddress" parameterType="com.gsy.server.model.Address">
+        insert into address
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="openId != null">
+                openId,
+            </if>
+            <if test="consignee != null">
+                consignee,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="province != null">
+                province,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="district != null">
+                district,
+            </if>
+            <if test="street != null">
+                street,
+            </if>
+            <if test="detail_street != null">
+                detail_street,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="openId != null">
+                #{openId},
+            </if>
+            <if test="consignee != null">
+                #{consignee},
+            </if>
+            <if test="phone != null">
+                #{phone},
+            </if>
+            <if test="province != null">
+                #{province},
+            </if>
+            <if test="city != null">
+                #{city},
+            </if>
+            <if test="district != null">
+                #{district},
+            </if>
+            <if test="street != null">
+                #{street},
+            </if>
+            <if test="detail_street != null">
+                #{detail_street},
+            </if>
+            <if test="type != null">
+                #{type},
+            </if>
+        </trim>
+    </insert>
+
 </mapper>

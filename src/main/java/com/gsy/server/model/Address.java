@@ -1,6 +1,7 @@
 package com.gsy.server.model;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Address implements Serializable {
     // 主键
