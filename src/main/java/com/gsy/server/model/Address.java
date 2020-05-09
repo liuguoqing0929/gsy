@@ -3,6 +3,9 @@ package com.gsy.server.model;
 import java.io.Serializable;
 import java.util.UUID;
 
+/**
+ * 地址表
+ */
 public class Address implements Serializable {
     // 主键
     private String id;
