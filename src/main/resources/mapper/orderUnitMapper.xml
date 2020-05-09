@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gsy.server.mapper.OrderUnitMapper">
+
+    <!-- 添加 -->
+    <insert id="addOrderUnit" parameterType="com.gsy.server.model.OrderUnit">
+        insert into order_unit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="unitName != null">
+                unit_name,
+            </if>
+            <if test="unitCode != null">
+                unit_code,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="unitName != null">
+                #{unitName},
+            </if>
+            <if test="unitCode != null">
+                #{unitCode},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="queryOrderUnit" parameterType="java.lang.String" resultType="com.gsy.server.model.OrderUnit">
+        SELECT
+            *
+        FROM order_unit
+        WHERE 1=1
+    </select>
+
+    <!-- 更新 -->
+    <update id="updateOrderUnitById" parameterType="com.gsy.server.model.OrderUnit">
+        <if test="id != null">
+            update order_unit
+            <set>
+                <if test="unitName != null and unitName != ''">
+                    unit_name = #{unitName},
+                </if>
+                <if test="unitCode != null and unitCode != ''">
+                    unit_code = #{unitCode},
+                </if>
+            </set>
+            where 1 = 1 and id = #{id}
+        </if>
+    </update>
+
+    <!-- 删除 -->
+    <delete id="deleteOrderUnitById" parameterType="java.lang.String">
+        DELETE FROM ORDER_UNIT WHERE ID = #{id}
+    </delete>
+
+</mapper>

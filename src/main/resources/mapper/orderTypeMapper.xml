@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gsy.server.mapper.OrderTypeMapper">
+
+    <!-- 添加 -->
+    <insert id="addOrderType" parameterType="com.gsy.server.model.OrderType">
+        insert into order_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="typeName != null">
+                type_name,
+            </if>
+            <if test="typeCode != null">
+                type_code,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="typeName != null">
+                #{typeName},
+            </if>
+            <if test="typeCode != null">
+                #{typeCode},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="queryOrderType" parameterType="java.lang.String" resultType="com.gsy.server.model.OrderType">
+        SELECT
+            *
+        FROM order_type
+        WHERE 1=1
+    </select>
+
+    <!-- 更新 -->
+    <update id="updateOrderTypeById" parameterType="com.gsy.server.model.OrderType">
+        <if test="id != null">
+            update order_type
+            <set>
+                <if test="typeName != null and typeName != ''">
+                    type_name = #{typeName},
+                </if>
+                <if test="typeCode != null and typeCode != ''">
+                    type_code = #{typeCode},
+                </if>
+            </set>
+            where 1 = 1 and id = #{id}
+        </if>
+    </update>
+
+    <!-- 删除 -->
+    <delete id="deleteOrderTypeById" parameterType="java.lang.String">
+        DELETE FROM ORDER_Type WHERE ID = #{id}
+    </delete>
+
+</mapper>
