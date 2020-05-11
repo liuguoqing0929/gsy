@@ -2,4 +2,113 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gsy.server.mapper.OrderMapper">
 
+    <insert id="addOrder" parameterType="com.gsy.server.model.Order">
+        insert into order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userOpenId != null">
+                user_openid,
+            </if>
+            <if test="orderType != null">
+                order_type,
+            </if>
+            <if test="orderStatus != null">
+                order_status,
+            </if>
+            <if test="orderUnit != null">
+                order_unit,
+            </if>
+            <if test="orderNumber != null">
+                order_number,
+            </if>
+            <if test="orderPrice != null">
+                order_price,
+            </if>
+            <if test="orderAllPrice != null">
+                order_all_Price,
+            </if>
+            <if test="orderTime != null">
+                order_time,
+            </if>
+            <if test="addressId != null">
+                address_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="userOpenId != null">
+                #{userOpenId},
+            </if>
+            <if test="orderType != null">
+                #{orderType},
+            </if>
+            <if test="orderStatus != null">
+                #{orderStatus},
+            </if>
+            <if test="orderUnit != null">
+                #{orderUnit},
+            </if>
+            <if test="orderNumber != null">
+                #{orderNumber},
+            </if>
+            <if test="orderPrice != null">
+                #{orderPrice},
+            </if>
+            <if test="orderAllPrice != null">
+                #{orderAllPrice},
+            </if>
+            <if test="orderTime != null">
+                #{orderTime},
+            </if>
+            <if test="addressId != null">
+                #{addressId},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteOrder" parameterType="java.lang.String">
+        DELETE FROM ORDER WHERE ID = #{id}
+    </delete>
+
+    <!-- 更新 -->
+    <update id="updateOrderById" parameterType="com.gsy.server.model.Order">
+        <if test="id != null">
+            update ORDER
+            <set>
+                <if test="userOpenId != null and userOpenId != ''">
+                    user_openid = #{userOpenId},
+                </if>
+                <if test="orderType != null and orderType != ''">
+                    order_type = #{orderType},
+                </if>
+                <if test="orderStatus != null and orderStatus != ''">
+                    order_status = #{orderStatus},
+                </if>
+                <if test="orderUnit != null and orderUnit != ''">
+                    order_unit = #{orderUnit},
+                </if>
+                <if test="orderNumber != null and orderNumber != ''">
+                    order_number = #{orderNumber},
+                </if>
+                <if test="orderPrice != null and orderPrice != ''">
+                    order_price = #{orderPrice},
+                </if>
+                <if test="orderAllPrice != null and orderAllPrice != ''">
+                    order_all_price = #{orderAllPrice},
+                </if>
+                <if test="orderTime != null and orderTime != ''">
+                    order_time = #{orderTime},
+                </if>
+                <if test="addressId != null and addressId != ''">
+                    address_id = #{addressId},
+                </if>
+            </set>
+            where 1 = 1 and id = #{id}
+        </if>
+    </update>
+
 </mapper>

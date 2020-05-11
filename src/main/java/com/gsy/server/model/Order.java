@@ -11,6 +11,7 @@ public class Order implements Serializable {
     private String orderUnit;
     private Integer orderNumber;
     private Integer orderPrice;
+    private Integer orderAllPrice;
     private String orderTime;
     private String addressId;
 
@@ -84,5 +85,13 @@ public class Order implements Serializable {
 
     public void setAddressId(String addressId) {
         this.addressId = addressId;
+    }
+
+    public Integer getOrderAllPrice() {
+        return orderAllPrice;
+    }
+
+    public void setOrderAllPrice(Integer orderAllPrice) {
+        this.orderAllPrice = orderAllPrice;
     }
 }

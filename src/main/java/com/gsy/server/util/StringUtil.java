@@ -12,4 +12,15 @@ public class StringUtil {
             return true;
         return false;
     }
+
+
+    /**
+     * 转换成字符串
+     * @param object
+     * @return
+     */
+    public static String objectToStr(Object object){
+
+        return String.valueOf(object);
+    }
 }
